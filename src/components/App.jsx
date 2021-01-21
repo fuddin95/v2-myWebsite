@@ -12,9 +12,8 @@ function App() {
   <Router>
     <Navbar />
   </Router>
-<h1>yoo yoyo</h1>
 
-{/* <Home /> */}
+
   </div>);
 }
 

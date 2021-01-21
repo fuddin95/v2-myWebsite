@@ -6,14 +6,22 @@ import Dropdown from "./Dropdown";
 // import Dropdown from "./Dropdown.jsx"
 
 function Navbar2() {
-    // hooks
+  // hooks
   const [clickState, setClickState] = useState(false);
-  const [dropdown,setDropdown]=useState(false);
- 
-// Arrow Functions
+  const [dropdown, setDropdown] = useState(false);
+
+  // Arrow Functions
   const handleClick = () => setClickState(!clickState);
   const closeMobileMenu = () => setClickState(false);
-
+  const onMouseEnter = () => {
+    if (window.innerWidth < 960) {
+      setDropdown(false);
+    } else {
+      setDropdown(true);
+    }
+  };
+  const onMouseLeave = () =>
+    setDropdown((window.innerWidth < 960) ? false : false);
 
   return (
     <div>
@@ -23,12 +31,10 @@ function Navbar2() {
         </Link>
         {/* This div produces that times and cross bar  */}
         <div className="menue-icon" onClick={handleClick}>
-          
           {/* these classes are coming from font awesome library */}
           <i className={clickState ? "fas fa-times" : "fas fa-bars"} />
         </div>
         <ul className={clickState ? "nav-menu active" : "nav-menu"}>
-          
           {/* Home */}
           <li className="nav-item">
             <Link to="/" className="nav-links" onClick={closeMobileMenu}>
@@ -36,7 +42,8 @@ function Navbar2() {
             </Link>
           </li>
           {/* services */}
-          <li className="nav-item">
+          <li className="nav-item" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+
             <Link
               to="/services"
               className="nav-links"
@@ -44,23 +51,31 @@ function Navbar2() {
             >
               Services <i className="fas fa-caret-down" />
             </Link>
-            {/* Dropdown */} 
-            {dropdown && <Dropdown/> }
+            {/* Dropdown */}
+            {dropdown && <Dropdown />}
           </li>
           {/* Contact US */}
           <li className="nav-item">
-            <Link to="/contact-us" className="nav-links" onClick={closeMobileMenu}>
+            <Link
+              to="/contact-us"
+              className="nav-links"
+              onClick={closeMobileMenu}
+            >
               Contact Us
             </Link>
           </li>
           {/* Sign up */}
-         <li className="nav-item">
-            <Link to="/contact" className="nav-links-mobile" onClick={closeMobileMenu}>
-                Sign Up
+          <li className="nav-item">
+            <Link
+              to="/contact"
+              className="nav-links-mobile"
+              onClick={closeMobileMenu}
+            >
+              Sign Up
             </Link>
-         </li>
+          </li>
         </ul>
-        <Button/>
+        <Button />
       </nav>
     </div>
   );

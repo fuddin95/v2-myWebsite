@@ -1,5 +1,5 @@
 
-export const MenuItems = [
+const MenuItems = [
     {
         title:"Marketing",
         path:"/marketing",
@@ -17,3 +17,5 @@ export const MenuItems = [
     },
 
 ]
+
+export default MenuItems;

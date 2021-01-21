@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import MenuItems from "./MenuItems";//A js file containing JSON
-
+import "./Dropdown.css"
 function Dropdown (){
    const [clickState,setClickState]= useState(false);
    
@@ -14,12 +14,12 @@ function Dropdown (){
         {MenuItems.map((item,index)=>{
             return (
                 <li key={index}>
-                    <Link className={item.cName} 
+                    <Link 
+                    className={item.cName} 
                     to={item.path}
                     onClick= {()=>setClickState(false)}
                     >
                     {item.title}
-
                     </Link>
                 </li>
 
