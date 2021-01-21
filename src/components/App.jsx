@@ -1,18 +1,22 @@
-import React from 'react';
-import { NavLink, Switch, Route } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import Home from "./Home.jsx";
+import Navbar2 from "./Navbar.jsx"
 
-import Routes from "./Routes.jsx";
 
+import Navbar from "./Navbar.jsx";
 
-function App (){
+function App() {
   return (
-    <div className='app'>
-    
-    <h1>Portfolio Website</h1>
-    <Routes />
-    
-   </div>
-  );
+  <div>
+  <Router>
+    <Navbar />
+  </Router>
+<h1>yoo yoyo</h1>
+
+{/* <Home /> */}
+  </div>);
 }
 
 export default App;
+
